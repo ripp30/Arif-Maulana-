@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Arif Maulana | Portfolio</title>
+
+    <meta name="description"
+        content="Portfolio pribadi Arif Maulana - Computer Engineering Student">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* GENERAL */
+        section {
+            min-height: 100vh;
+            padding: 100px 8% 60px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .title h2 {
+            font-size: 35px;
+            color: #38bdf8;
+        }
+
+        .title p {
+            color: #94a3b8;
+            margin-top: 8px;
+        }
+
+        /* HERO */
+        #home {
+            display: flex;
+            align-items: center;
+        }
+
+        .hero {
+            max-width: 700px;
+        }
+
+        .hero small {
+            color: #38bdf8;
+            font-size: 17px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 75px);
+            margin: 10px 0;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: #94a3b8;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 8px;
+            background: #38bdf8;
+            color: #082f49;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #7dd3fc;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* ABOUT */
+        #about {
+            background: #111827;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+
+        .info {
+            display: grid;
+            gap: 15px;
+        }
+
+        .info-box {
+            padding: 18px;
+            background: #1e293b;
+            border-radius: 10px;
+            border-left: 3px solid #38bdf8;
+        }
+
+        .info-box strong {
+            display: block;
+            color: #38bdf8;
+            margin-bottom: 3px;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            border: 1px solid #38bdf8;
+        }
+
+        .skill h3 {
+            margin-bottom: 8px;
+            color: #38bdf8;
+        }
+
+        .skill p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* PROJECT */
+        #projects {
+            background: #111827;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .project {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .project a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact p {
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social a {
+            padding: 10px 18px;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #020617;
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+                font-size: 13px;
+            }
+
+            section {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .title h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">ARIF.</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HOME -->
+    <section id="home">
+        <div class="container">
+            <div class="hero">
+
+                <small>HELLO, I'M</small>
+
+                <h1>
+                    Arif <span>Maulana.</span>
+                </h1>
+
+                <p>
+                    Computer Engineering student who is interested
+                    in technology, programming, electronics, and
+                    building useful digital projects.
+                </p>
+
+                <a href="#projects" class="btn">
+                    View Projects
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="container">
+
+            <div class="title">
+                <h2>About Me</h2>
+                <p>A little bit about me</p>
+            </div>
+
+            <div class="about-content">
+
+                <div class="about-text">
+                    <p>
+                        Halo! Saya Arif Maulana. Saya tertarik pada
+                        dunia teknologi dan komputer.
+                    </p>
+
+                    <p>
+                        Saya senang mempelajari bagaimana hardware
+                        dan software bekerja, mulai dari programming,
+                        mikrokontroler, hingga pengembangan website.
+                    </p>
+
+                    <p>
+                        Saat ini saya sedang mengembangkan kemampuan
+                        saya melalui berbagai proyek kecil dan
+                        eksperimen teknologi.
+                    </p>
+                </div>
+
+                <div class="info">
+
+                    <div class="info-box">
+                        <strong>Education</strong>
+                        Computer Engineering
+                    </div>
+
+                    <div class="info-box">
+                        <strong>Interest</strong>
+                        Programming & Technology
+                    </div>
+
+                    <div class="info-box">
+                        <strong>Currently Learning</strong>
+                        Web Development & Electronics
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="title">
+                <h2>Skills</h2>
+                <p>Technologies I'm learning</p>
+            </div>
+
+            <div class="skills">
+
+                <div class="skill">
+                    <h3>HTML</h3>
+                    <p>
+                        Membuat struktur dan halaman website.
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>CSS</h3>
+                    <p>
+                        Styling, layout, responsive design.
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>JavaScript</h3>
+                    <p>
+                        Membuat website menjadi interaktif.
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>Arduino</h3>
+                    <p>
+                        Membuat proyek menggunakan mikrokontroler.
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>ESP32</h3>
+                    <p>
+                        IoT dan sistem berbasis Wi-Fi.
+                    </p>
+                </div>
+
+                <div class="skill">
+                    <h3>Git & GitHub</h3>
+                    <p>
+                        Version control dan penyimpanan project.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="title">
+                <h2>Projects</h2>
+                <p>Some things I've built</p>
+            </div>
+
+            <div class="projects">
+
+                <div class="project">
+                    <h3>ESP32 Web Server</h3>
+
+                    <p>
+                        Website sederhana untuk mengontrol
+                        perangkat elektronik menggunakan ESP32
+                        melalui jaringan Wi-Fi.
+                    </p>
+
+                    <a href="#" onclick="showMessage()">
+                        View Project →
+                    </a>
+                </div>
+
+
+                <div class="project">
+                    <h3>Arduino Project</h3>
+
+                    <p>
+                        Proyek elektronik menggunakan Arduino,
+                        sensor, relay, dan beberapa komponen
+                        elektronik lainnya.
+                    </p>
+
+                    <a href="#" onclick="showMessage()">
+                        View Project →
+                    </a>
+                </div>
+
+
+                <div class="project">
+                    <h3>Personal Portfolio</h3>
+
+                    <p>
+                        Website portfolio pribadi yang dibuat
+                        menggunakan HTML, CSS, dan JavaScript.
+                    </p>
+
+                    <a href="#home">
+                        View Project →
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="title">
+                <h2>Contact</h2>
+                <p>Let's connect</p>
+            </div>
+
+            <div class="contact">
+
+                <p>
+                    Punya project, pertanyaan, atau sekadar ingin
+                    ngobrol tentang teknologi? Hubungi saya melalui
+                    salah satu platform berikut.
+                </p>
+
+                <div class="social">
+
+                    <a href="mailto:emailkamu@example.com">
+                        Email
+                    </a>
+
+                    <a href="https://github.com/" target="_blank">
+                        GitHub
+                    </a>
+
+                    <a href="https://instagram.com/" target="_blank">
+                        Instagram
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © <span id="year"></span> Arif Maulana. All rights reserved.
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // Tahun otomatis
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+        // Pesan ketika project belum memiliki link
+        function showMessage() {
+            alert("Project ini sedang dalam pengembangan 🚀");
+        }
+
+    </script>
+
+</body>
+</html>
